@@ -24,9 +24,24 @@ public class pController : MonoBehaviour
         Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 
         rb.AddForce (movement * thrust);
+
+        //Jump
+        if (isGrounded() && Input.GetKey(KeyCode.Space))
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
     }
 
-    private void OnTriggerEnter(Collider other)
+
+    private bool isGrounded()
+    {
+        return Physics.CheckCapsule(col.bounds.center,
+            new Vector3(col.bounds.center.x, col.bounds.min.y, col.bounds.center.z), col.radius * .9f, groundLayers);
+    }
+
+}
+
+private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Pickup"))
         { other.gameObject.SetActive(false); }
