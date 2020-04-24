@@ -6,24 +6,31 @@ public class pController : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public float thrust;
+    public float movementSpeed;
+    public LayerMask groundLayers;
+    public float jumpForce;
+    public float gravity = 9.8f;
+
+    public SphereCollider col;
 
     private Rigidbody rb;
-    
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        col = GetComponent<SphereCollider>();
+
     }
 
     //FixedUpdate
     private void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis ("Horizontal");
-        float moveVertical = Input.GetAxis ("Vertical");
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
-        rb.AddForce (movement * thrust);
+        rb.AddForce(movement * movementSpeed);
 
         //Jump
         if (isGrounded() && Input.GetKey(KeyCode.Space))
@@ -31,7 +38,6 @@ public class pController : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
-
 
     private bool isGrounded()
     {
@@ -41,9 +47,4 @@ public class pController : MonoBehaviour
 
 }
 
-private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("Pickup"))
-        { other.gameObject.SetActive(false); }
-    }
-}
+
