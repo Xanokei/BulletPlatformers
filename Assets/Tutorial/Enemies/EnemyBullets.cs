@@ -21,6 +21,5 @@ public class EnemyBullets : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.velocity = transform.up * speed;
     }
 }
