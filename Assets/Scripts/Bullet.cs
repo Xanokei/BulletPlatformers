@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
         //transform.LookAt(target);
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
-        //if HIT TARGEt
+        //if HIT TARGET
         if (dir.magnitude <= distanceThisFrame)
         {
             HitTarget();

@@ -17,7 +17,7 @@ public class TransformFunctions : MonoBehaviour
     {
 
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.W))
         {
             if (Input.GetKey(KeyCode.Space))
             {
@@ -32,16 +32,16 @@ public class TransformFunctions : MonoBehaviour
             
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.S))
         {
             transform.Translate(-Vector3.forward * moveSpeed * Time.deltaTime);
         }
 
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
             transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
             transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
 
         //if (Input.GetKey(KeyCode.LeftArrow))
