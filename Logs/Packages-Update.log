@@ -45,3 +45,14 @@ The following packages were added:
   com.unity.ugui@1.0.0
 The following packages were updated:
   com.unity.postprocessing from version 2.1.4 to 2.3.0
+
+=== Thu Apr 30 21:36:46 2020
+
+Packages were changed.
+Update Mode: mergeDefaultDependencies
+
+The following packages were added:
+  com.unity.connect.share@1.2.0-preview.1
+  com.unity.learn.iet-framework@0.3.0-preview.5
+  com.unity.probuilder@4.2.3
+  com.unity.progrids@3.0.3-preview.5

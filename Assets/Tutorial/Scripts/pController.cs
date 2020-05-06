@@ -22,7 +22,6 @@ public class pController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         col = GetComponent<SphereCollider>();
-
     }
 
     void Update()
