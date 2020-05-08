@@ -63,7 +63,7 @@ public class TurretScript : MonoBehaviour
         {
             //CODE FOR TURRET ROTATION
             //Jonah Method
-            //turretRotator.transform.LookAt(target);
+            turretRotator.transform.LookAt(target);
 
             //Brackey's method (SIMPLE)
             //Vector3 dir = target.position - transform.position;
@@ -75,13 +75,13 @@ public class TurretScript : MonoBehaviour
             //turretRotator.rotation = Quaternion.Euler (0f, rotation.y, 0f);
 
             //Brackey's method (SMOOTHED)
-            Vector3 dir = target.position - transform.position;
-            Quaternion lookRotation = Quaternion.LookRotation(dir);
-            Vector3 rotation = Quaternion.Lerp(turretRotator.rotation,lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-            //For rotating entire turret to point at player
-            //turretRotator.rotation = lookRotation;
-            //for only one axis(2d ?)
-            turretRotator.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+            //Vector3 dir = target.position - transform.position;
+            //Quaternion lookRotation = Quaternion.LookRotation(dir);
+            //Vector3 rotation = Quaternion.Lerp(turretRotator.rotation,lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+            ////For rotating entire turret to point at player
+            ////turretRotator.rotation = lookRotation;
+            ////for only one axis(2d ?)
+            //turretRotator.rotation = Quaternion.Euler(0f, rotation.y, 0f);
         }
 
         //CODE FOR TURRET SHOOTING
