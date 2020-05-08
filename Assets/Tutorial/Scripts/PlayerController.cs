@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
         // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
-        // as an acceleration (ms^-2)
+        // as an acceleration (ms^-2) needs to add Velocity
         moveDirection.y -= gravity * Time.deltaTime;
 
         // Move the controller
