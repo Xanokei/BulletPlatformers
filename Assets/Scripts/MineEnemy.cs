@@ -13,7 +13,7 @@ public class MineEnemy : MonoBehaviour
 
     public bool followingPlayer = false;
 
-    public string enemyTag = "Player";
+    //public string enemyTag = "Player";
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +54,7 @@ public class MineEnemy : MonoBehaviour
     void HitTarget()
     {
         Debug.Log("MINE HIT");
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     private void OnDrawGizmosSelected()

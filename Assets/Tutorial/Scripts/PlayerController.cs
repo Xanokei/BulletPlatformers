@@ -10,11 +10,16 @@ public class PlayerController : MonoBehaviour
     public float gravity = 20.0f;
     private Vector3 moveDirection = Vector3.zero;
 
+    //for collision
+    private Rigidbody rb;
+
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
 
+        //For collission/death
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -46,5 +51,26 @@ public class PlayerController : MonoBehaviour
     {
 
     }
-    
+
+
+
+    //COLLISION DETECTION FOR DEATH
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("TRIGGER COLLIDER");
+        //Layer 11 == "Death" layer
+        if (other.gameObject.layer == 11)
+        {
+            rb.gameObject.SetActive(false);
+            other.gameObject.SetActive(false);
+        }
+        //layer 12 == "Bullet" layer
+        else if (other.gameObject.layer == 12) 
+        {
+            Debug.Log("COLLIDER BULLET");
+            other.gameObject.SetActive(false);
+            rb.gameObject.SetActive(false);
+        }
+    }
+
 }
