@@ -41,7 +41,8 @@ public class MineEnemy : MonoBehaviour
             Vector3 dir = target.position - transform.position;
             float distanceThisFrame = speed * Time.deltaTime;
 
-            transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+            //transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
 
             if (dir.magnitude <= hitDistance)
             {
