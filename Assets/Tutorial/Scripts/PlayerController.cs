@@ -70,6 +70,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("COLLIDER BULLET");
             other.gameObject.SetActive(false);
             rb.gameObject.SetActive(false);
+            //Application.Quit();
         }
     }
 
