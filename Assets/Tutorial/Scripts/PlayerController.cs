@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class PlayerController : MonoBehaviour
 {
     CharacterController characterController;
@@ -71,7 +72,7 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (rb.position.y < -20f)
+        if (rb.position.y < -10f)
         {
             FindObjectOfType<GameManager>().EndGame();
         }
@@ -88,7 +89,7 @@ public class PlayerController : MonoBehaviour
             death = true;
         }
         //layer 12 == "Bullet" layer
-        else if (other.gameObject.layer == 12)
+        else if (other.gameObject.layer == 12) 
         {
             Debug.Log("COLLIDER BULLET");
             //Application.Quit();
