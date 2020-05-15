@@ -77,16 +77,17 @@ public class TurretScript : MonoBehaviour
             //Brackey's method (SMOOTHED)
             //Vector3 dir = target.position - transform.position;
             //Quaternion lookRotation = Quaternion.LookRotation(dir);
-            //Vector3 rotation = Quaternion.Lerp(turretRotator.rotation,lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+            //Vector3 rotation = Quaternion.Lerp(turretRotator.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
             ////For rotating entire turret to point at player
-            ////turretRotator.rotation = lookRotation;
+            //turretRotator.rotation = lookRotation;
+            //turretRotator.rotation = Quaternion.Euler(rotation);
             ////for only one axis(2d ?)
             //turretRotator.rotation = Quaternion.Euler(0f, rotation.y, 0f);
         }
 
         //CODE FOR TURRET SHOOTING
         //IF cooling == 0 FIRE
-        if(fireCountDown <= 0f)
+        if (fireCountDown <= 0f)
         {
             Shoot();
             fireCountDown = 1f / fireRate;
