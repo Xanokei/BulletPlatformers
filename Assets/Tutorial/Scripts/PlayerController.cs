@@ -72,29 +72,36 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-
+        if (rb.position.y < -1f)
+        {
+            FindObjectOfType<GameManager>().EndGame();
+        }
     }
-
-
 
     //COLLISION DETECTION FOR DEATH
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("TRIGGER COLLIDER");
+        bool death = false;
         //Layer 11 == "Death" layer
         if (other.gameObject.layer == 11)
         {
-            rb.gameObject.SetActive(false);
-            other.gameObject.SetActive(false);
+            death = true;
         }
         //layer 12 == "Bullet" layer
         else if (other.gameObject.layer == 12) 
         {
             Debug.Log("COLLIDER BULLET");
+            //Application.Quit();
+            death = true;
+        }
+        if (death == true)
+        {
             other.gameObject.SetActive(false);
             rb.gameObject.SetActive(false);
-            //Application.Quit();
+            FindObjectOfType<GameManager>().EndGame();
         }
+
     }
 
 }
