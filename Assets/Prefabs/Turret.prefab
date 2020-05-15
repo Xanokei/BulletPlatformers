@@ -48,7 +48,7 @@ MonoBehaviour:
   range: 15
   turnSpeed: 3
   fireRate: 3
-  target: {fileID: 0}
+  target: {fileID: 6439418139021466272, guid: 68b69db60d2747246867c09c45237aeb, type: 3}
   enemyTag: Player
   turretRotator: {fileID: 5147302227217724657}
   bulletPrefab: {fileID: 113180351767696915, guid: 061b98f15a6ee124ba553d3c1e398fae,
