@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class PlayerController : MonoBehaviour
+﻿public class PlayerController : MonoBehaviour
 {
     CharacterController characterController;
     public float playerSpeed = 6.0f;
@@ -73,33 +68,36 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-
+        if (rb.position.y < -1f)
+        {
+            FindObjectOfType<GameManager>().EndGame();
+        }
     }
-
-
 
     //COLLISION DETECTION FOR DEATH
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("TRIGGER COLLIDER");
-        Boolean death = false;
+        bool death = false;
         //Layer 11 == "Death" layer
         if (other.gameObject.layer == 11)
         {
             death = true;
         }
         //layer 12 == "Bullet" layer
-        else if (other.gameObject.layer == 12) 
+        else if (other.gameObject.layer == 12)
         {
             Debug.Log("COLLIDER BULLET");
+            //Application.Quit();
             death = true;
         }
-        if(death == true)
+        if (death == true)
         {
             other.gameObject.SetActive(false);
             rb.gameObject.SetActive(false);
-            //FindObjectOfType<GameManager>().EndGame();
+            FindObjectOfType<GameManager>().EndGame();
         }
+
     }
 
 }
