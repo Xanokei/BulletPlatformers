@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (rb.position.y < -1f)
+        if (rb.position.y < -10f)
         {
             FindObjectOfType<GameManager>().EndGame();
         }
