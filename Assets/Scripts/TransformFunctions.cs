@@ -6,10 +6,14 @@ public class TransformFunctions : MonoBehaviour
 {
     public float moveSpeed = 10f;
     public float turnSpeed = 400f;
+
+    private Rigidbody rb;
+
     // Start is called before the first frame update
     void Start()
     {
         moveSpeed = 20f;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -54,5 +58,20 @@ public class TransformFunctions : MonoBehaviour
         //{
         //    transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
         //}
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("TRIGGER COLLIDER");
+        //Layer 11 == "Death" layer
+        if(other.gameObject.layer == 11)
+        {
+            rb.gameObject.SetActive(false);
+        } else if (other.gameObject.layer == 12)
+        {
+            Debug.Log("COLLIDER BULLET");
+            other.gameObject.SetActive(false);
+            rb.gameObject.SetActive(false);
+        }
     }
 }
