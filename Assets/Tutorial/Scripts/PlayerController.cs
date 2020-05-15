@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -81,19 +82,23 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("TRIGGER COLLIDER");
+        Boolean death = false;
         //Layer 11 == "Death" layer
         if (other.gameObject.layer == 11)
         {
-            rb.gameObject.SetActive(false);
-            other.gameObject.SetActive(false);
+            death = true;
         }
         //layer 12 == "Bullet" layer
         else if (other.gameObject.layer == 12) 
         {
             Debug.Log("COLLIDER BULLET");
+            death = true;
+        }
+        if(death == true)
+        {
             other.gameObject.SetActive(false);
             rb.gameObject.SetActive(false);
-            //Application.Quit();
+            //FindObjectOfType<GameManager>().EndGame();
         }
     }
 

@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3353148644343653415}
   - component: {fileID: 3353148644343653414}
   - component: {fileID: 7225114223397260693}
-  - component: {fileID: 3353148644343653409}
   - component: {fileID: 3353148644343653419}
+  - component: {fileID: 8147471399543813010}
   m_Layer: 11
   m_Name: MineEnemy
   m_TagString: Untagged
@@ -109,23 +109,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3353148644343653409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3353148644343653408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce542023239756b4882ba49b482307a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 10
-  speed: 5
-  target: {fileID: 0}
-  hitDistance: 1
-  followingPlayer: 0
 --- !u!54 &3353148644343653419
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -142,3 +125,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8147471399543813010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3353148644343653408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce542023239756b4882ba49b482307a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 10
+  speed: 5
+  target: {fileID: 584290093398323197, guid: 6f9cd6afb5c522c4a87140acba6fa0f3, type: 3}
+  hitDistance: 2
+  followingPlayer: 0
