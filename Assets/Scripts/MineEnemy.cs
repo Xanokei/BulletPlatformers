@@ -34,6 +34,7 @@ public class MineEnemy : MonoBehaviour
     }
 
     // Update is called once per frame
+    //Depreciated code, take apart HIT TARGET and put into player controller
     void Update()
     {
         if(followingPlayer == true)

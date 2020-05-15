@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Net.Http.Headers;
+using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
@@ -29,19 +30,25 @@ public class Bullet : MonoBehaviour
         }
         //for FOLLOWING BULLETS
         //transform.LookAt(target);
-        Vector3 dir = target.position - transform.position;
-        float distanceThisFrame = speed * Time.deltaTime;
+        //Vector3 dir = target.position - transform.position;
+        //float distanceThisFrame = speed * Time.deltaTime;
         //if HIT TARGET
-        if (dir.magnitude <= distanceThisFrame)
-        {
-            HitTarget();
-            return;
-        }
+        //if (dir.magnitude <= distanceThisFrame)
+        //{
+        //    HitTarget();
+        //    return;
+        //}
         //Space.world sets direction to worldspace, STOPS ORBITAL/CIRCULAR MOVEMENT
         //transform.Translate(dir.normalized * distanceThisFrame, Space.World);
         //STRAIGHT BULLETS
-        transform.Translate(Vector3.forward * distanceThisFrame);
+        //transform.Translate(Vector3.forward * distanceThisFrame);
         //for STRAIGHT BULLETS 
+
+        //COLLIDING BULLETS
+        //Vector3 ahead = transform.position + Vector3.forward * speed;
+        //transform.position = Vector3.MoveTowards(transform.position, ahead, speed * Time.deltaTime);
+
+        transform.position += transform.forward * Time.deltaTime * speed;
     }
 
     void HitTarget()
@@ -49,4 +56,10 @@ public class Bullet : MonoBehaviour
         Debug.Log("HIT");
         Destroy(gameObject);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject);
+    }
+
 }

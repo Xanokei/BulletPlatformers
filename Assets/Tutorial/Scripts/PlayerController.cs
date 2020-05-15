@@ -1,4 +1,7 @@
-﻿public class PlayerController : MonoBehaviour
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+public class PlayerController : MonoBehaviour
 {
     CharacterController characterController;
     public float playerSpeed = 6.0f;
@@ -68,7 +71,7 @@
     }
     void FixedUpdate()
     {
-        if (rb.position.y < -1f)
+        if (rb.position.y < -20f)
         {
             FindObjectOfType<GameManager>().EndGame();
         }
