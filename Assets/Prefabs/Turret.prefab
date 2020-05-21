@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f1d1d3db139524ba50acf04035578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
-  turnSpeed: 3
-  fireRate: 3
+  range: 40
+  turnSpeed: 20
+  fireRate: 20
   target: {fileID: 6439418139021466272, guid: 68b69db60d2747246867c09c45237aeb, type: 3}
   enemyTag: Player
   turretRotator: {fileID: 5147302227217724657}
