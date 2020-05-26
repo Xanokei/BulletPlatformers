@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
     {
         if (rb.position.y < -10f)
         {
-            FindObjectOfType<GameManager>().EndGame();
+            FindObjectOfType<GameManager>().GameOver();
         }
     }
 
@@ -99,9 +99,15 @@ public class PlayerController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             rb.gameObject.SetActive(false);
-            FindObjectOfType<GameManager>().EndGame();
+            FindObjectOfType<GameManager>().GameOver();
         }
-
+        //layer 12 == "Win" layer
+        else if (other.gameObject.layer == 13)
+        {
+            Debug.Log("COLLIDER WIN");
+            //Application.Quit();
+            FindObjectOfType<GameManager>().GameWin();
+        }
     }
 
 }
