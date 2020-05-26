@@ -6,15 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Development/MainMenu.unity
-    guid: ab776e87c3c75dd4cba03266a799d316
-  - enabled: 0
-    path: Assets/Scenes/Seth Scene/Test Level.unity
-    guid: a19211e1b53290740a19f1d7261ccc04
+    path: Assets/Scenes/Seth Scene/Level 01.unity
+    guid: 15fc8400da242984982cf92792040d9c
   - enabled: 1
-    path: Assets/Scenes/Development/TestLevel.unity
-    guid: 5d6429092ce5dc5439d19d2e1f439cd9
-  - enabled: 1
-    path: Assets/Scenes/RollAball.unity
-    guid: 2864b2ab23a78614e96f2c224331b8a4
+    path: Assets/Scenes/Seth Scene/Level 02.unity
+    guid: b2aeac4bbf178ea409111602e9cd0279
   m_configObjects: {}
