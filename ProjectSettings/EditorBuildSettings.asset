@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Seth Scene/Level 02.unity
     guid: b2aeac4bbf178ea409111602e9cd0279
+  - enabled: 1
+    path: Assets/Scenes/Seth Scene/Level 03.unity
+    guid: 7116caed341f8024aa63fc900c376176
+  - enabled: 1
+    path: Assets/Scenes/Seth Scene/Level 04.unity
+    guid: 97cf8e6c2e6f8854e9a835e9abbd1ff2
   m_configObjects: {}
