@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour{
 
     public float restartDelay = 1f;
 
-    public GameObject completeLevelUI;
+    //public GameObject completeLevelUI;
 
     public GameObject gameOverObj;
     private GameOver gameOverUI;
@@ -16,16 +16,17 @@ public class GameManager : MonoBehaviour{
         gameOverUI = gameOverObj.GetComponent<GameOver>();
     }
 
-    public void CompleteLevel () 
-    {
-        completeLevelUI.SetActive(true);
-    }
+    //public void CompleteLevel () 
+    //{
+    //    completeLevelUI.SetActive(true);
+    //}
 
     public void GameOver() {
         gameHasEnded = true;
         Debug.Log("GAME OVER");
 
         gameOverUI.GameLoseScreen();
+        Time.timeScale = 0;
         //Invoke("Restart", restartDelay);
         //Restart();
     }
@@ -36,11 +37,13 @@ public class GameManager : MonoBehaviour{
     }
 
     public void Restart (){
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void ToMainMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
     public void NextLevel()
@@ -55,7 +58,8 @@ public class GameManager : MonoBehaviour{
         {
             ToMainMenu();
         }
-        
+        Time.timeScale = 1;
+
     }
 
 
