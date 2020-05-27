@@ -1,32 +1,68 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
-{
-    bool gameHasEnded = false;
+public class GameManager : MonoBehaviour{
+    private bool gameHasEnded = false;
 
     public float restartDelay = 1f;
 
-    public GameObject completeLevelUI;
-    public void CompleteLevel () 
+    //public GameObject completeLevelUI;
+
+    public GameObject gameOverObj;
+    private GameOver gameOverUI;
+
+    private void Start()
     {
-        completeLevelUI.SetActive(true);
+        gameOverUI = gameOverObj.GetComponent<GameOver>();
     }
 
-    public void EndGame (){
-            if (gameHasEnded == false)
-            {   
-                gameHasEnded = true;
-                Debug.Log("GAME OVER");
-                Invoke("Restart", restartDelay);
-                //Restart();
-            }
+    //public void CompleteLevel () 
+    //{
+    //    completeLevelUI.SetActive(true);
+    //}
 
+    public void GameOver() {
+        gameHasEnded = true;
+        Debug.Log("GAME OVER");
+
+        gameOverUI.GameLoseScreen();
+        Time.timeScale = 0;
+        //Invoke("Restart", restartDelay);
+        //Restart();
     }
 
-    void Restart (){
+    public void GameWin()
+    {
+        gameOverUI.GameWinScreen();
+    }
+
+    public void Restart (){
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void ToMainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
+    }
+    public void NextLevel()
+    {
+        //Debug.Log("Build Settings Count: " + SceneManager.sceneCountInBuildSettings);
+        //Debug.Log("Index Count: " + SceneManager.GetActiveScene().buildIndex);
+        //+1 because BUILD INDEX starts at 0 and SCENE COUNT starts at 1
+        if ((SceneManager.GetActiveScene().buildIndex +1) < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        } else
+        {
+            ToMainMenu();
+        }
+        Time.timeScale = 1;
+
+    }
+
+
 }
 
 
